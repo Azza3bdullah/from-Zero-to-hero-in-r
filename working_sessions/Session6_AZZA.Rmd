@@ -91,4 +91,22 @@ groupd <- interviews %>%
 
 ```
 
+```{r}
+
+interviews_meals_count <- interviews %>%
+  group_by(no_meals) %>%
+  count()
+ 
+```
+`
+```{r}
+interviews_meals_summaries <- interviews %>%
+  group_by(no_meals) %>%
+  summarise(
+    count = n()
+  )
+```
+
+
+```
 
