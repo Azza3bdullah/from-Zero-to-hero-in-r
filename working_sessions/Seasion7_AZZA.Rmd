@@ -1,0 +1,90 @@
+---
+title: "Seasion7_AZZA"
+author: "AZZA ABDULLAH S. ALGHAMDI"
+date: '2022-07-27'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+
+library(tidyverse)
+
+```
+
+## Using bult-in datasets
+
+```{r}
+
+data <- EuStockMarkets
+
+```
+
+## Using datasetd from pkgs
+
+```{r}
+
+library(gapminder)
+gapminder
+
+```
+
+## import data from the web
+
+```{r}
+
+ca <- read.csv("https://raw.githubusercontent.com/scienceparkstudygroup/r-lesson-based-on-ohi-data-training/gh-pages/data/ca.csv")
+
+```
+
+## Explore dataset
+
+```{r}
+
+glimpse(ca)
+
+```
+
+1st Plot
+
+```{r}
+
+ggplot(ca, aes(x = year, y = visitors, colour = park_name)) +
+  geom_point(alpha = 0.5) +
+  labs(x = "Year", y = "Visitors", title = "Calfornia National Park Visitation") +
+  theme_minimal() +
+   theme(
+     legend.title = element_blank()
+       
+   )
+ 
+```
+
+```{r}
+
+ggplot(ca, aes(x = year, y = visitors, colour = park_name)) +
+  geom_point(alpha = 0.5) +
+  facet_wrap(~ code, scales = "free")
+  theme_bw()
+
+```
+
+```{r}
+
+ggplot(ca,aes(x =year,y = visitors, colour = park_name)) +
+  geom_point(alpha=.5) +
+  labs(x="Year", y ="Visitors", title = "Southeast States National Park Visitation")
+  theme_light()
+
+```
+
+```{r}
+
+unique(ca$state)
+
+```
+
