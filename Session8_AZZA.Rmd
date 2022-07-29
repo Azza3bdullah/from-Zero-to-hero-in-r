@@ -1,0 +1,40 @@
+---
+title: "Session8_AZZA"
+author: "AZZA ABDULLAH S. ALGHAMDI"
+date: '2022-07-28'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Gap minder data
+
+```{r}
+
+library(gapminder)
+library(ggplot2)
+
+gapminder <- gapminder
+
+ggplot(gapminder, aes(x = log(gdpPercap), cal = year, y = lifeExp, size = pop)) +
+  geom_point(alpha= 0.3, color = "#7172a9") +
+  geom_smooth(method = lm) +
+  facet_wrap(~continent, scales = "free")
+  theme_bw()
+
+```
+
+```{r}
+
+library(tidyverse)
+
+data <- read_csv("https://raw.githubusercontent.com/ScienceParkStudyGroup/r-lesson-based-on-ohi-data-training/gh-pages/data/se.csv")
+str(dat)
+ggplot(dat, aes(x=park_name, y=visitors, col= park_name))+
+  geom_jitter(alpha=0.5)+
+  coord_flip()+
+  theme_bw()
+
+```
