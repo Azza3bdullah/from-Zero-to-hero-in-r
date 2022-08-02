@@ -1,0 +1,12 @@
+author: AZZA ABDULLAH S. ALGHAMDI
+date: '`r format(Sys.Date())`'
+title: FROM ZERO TO HERO
+output:
+  html_document:
+    toc_float: true
+    anchor_sections: true
+    toc: true
+    section_divs: true
+    toc_depth: true
+    number_sections: true
+

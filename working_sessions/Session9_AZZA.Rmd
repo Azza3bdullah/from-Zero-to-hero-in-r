@@ -1,0 +1,63 @@
+---
+title: "Session9_AZZA"
+author: "AZZA ABDULLAH S. ALGHAMDI"
+date: '2022-08-02'
+output:
+ prettydoc::html_pretty:
+   theme: cayman
+   highlight: github
+   math: katex
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Saving Plots
+
+```{r}
+
+library(tidyverse)
+library(gapminder)
+library(here)
+
+```
+
+```{r}
+
+plot_gapminder <- gapminder %>% 
+  ggplot(aes(x = log(gdpPercap), y = lifeExp, col = year, size = pop)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(method = lm) +
+  facet_wrap( ~ continent, scales = "free") +
+  theme_bw()
+
+```
+
+
+```{r}
+
+ggsave("gapminder_plot.png", plot_gapminder, height = 20, dpi = 300)
+
+```
+
+```{r}
+
+gapminder_data <- gapminder
+
+```
+
+```{r}
+
+write.csv(gapminder_data, "gapminder_data.csv")
+
+```
+
+
+```{r}
+
+write_csv(gapminder_data, here("results", "gapminder_data.csv"))
+
+```
+
